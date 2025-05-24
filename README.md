@@ -1,0 +1,2 @@
+# wincom
+windows  com idispatch
