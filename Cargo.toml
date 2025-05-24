@@ -1,0 +1,23 @@
+[package]
+name = "wincom"
+version = "0.1.0"
+edition = "2024"
+authors = ["dowell <dowell@funxdata.com>"]
+description = "windows rust com api"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/funxdata/wincom.git"
+keywords = ["windows", "ole","com"] # 推荐
+categories = ["network-programming"] 
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+windows = { version = "0.52.0", features = [
+        "Win32_Globalization",
+        "Win32_System_Com",
+        "Win32_Foundation",
+        "Win32_System_Ole",
+        "Win32_System_Variant",
+]}
+dyteslogs = "0.1.0"
+winreg = "0.52.0"
