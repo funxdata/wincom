@@ -1,9 +1,9 @@
 use std::mem::ManuallyDrop;
 use windows::Win32::Foundation::VARIANT_BOOL;
-use windows::Win32::System::Com::{IDispatch, SAFEARRAY};
+use windows::Win32::System::Com::IDispatch;
 use windows::Win32::System::Variant::{VariantChangeType, VariantClear, VARIANT, VARIANT_0_0, VAR_CHANGE_FLAGS, VT_ARRAY, VT_BOOL, VT_BSTR, VT_EMPTY, VT_I2, VT_I4, VT_I8, VT_NULL, VT_R8, VT_UI1, VT_UI2, VT_UI4, VT_UI8};
 use windows::Win32::System::Variant;
-use windows::Win32::System::Ole::{self, SafeArrayAccessData, SafeArrayGetElement, SafeArrayGetLBound, SafeArrayGetUBound, SafeArrayUnaccessData};
+use windows::Win32::System::Ole;
 
 use windows::core;
 pub trait VariantExt {
@@ -373,7 +373,7 @@ impl VariantExt for VARIANT {
     }
     fn to_vart_array(&self)-> core::Result<Vec<VARIANT>> {
         unsafe {
-            let psa = self.Anonymous.Anonymous.Anonymous.parray;
+            let _psa = self.Anonymous.Anonymous.Anonymous.parray;
             let count =  Variant::VariantGetElementCount(self) as i32;
             println!("。。。。。。。。。。。。。。。。。。::{:?}",count);
             println!("count::{:?}",count);
